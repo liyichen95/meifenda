@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>美芬达新材料</title>
+<meta name="description" content="内蒙古美芬达新材料科技有限公司，扎根包头，专注环保板材与家居装饰材料。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<style>
+/* Layout: 展厅样板墙 — 松绿色封面带 + 一排真实木皮样条，往下是企业信息、基材截面、可点开的饰面色卡、联系方式 */
+:root {
+  --paper: #f3f4ef;
+  --surface: #ffffff;
+  --ink: #1b2620;
+  --muted: #5c6862;
+  --line: #d8dcd3;
+  --pine: #1e4634;
+  --pine-deep: #16352a;
+  --on-pine: #eef1ea;
+  --on-pine-muted: #b5c5ba;
+  --walnut: #93613a;
+  --walnut-soft: #efe3d6;
+  --font-display: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --wrap: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111915; --surface: #18221d; --ink: #e8ece5; --muted: #9daaa2; --line: #2a3832;
+    --pine: #173a2b; --pine-deep: #102a1f; --on-pine: #eef1ea; --on-pine-muted: #a9bcb0;
+    --walnut: #d29d6c; --walnut-soft: #2c241c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111915; --surface: #18221d; --ink: #e8ece5; --muted: #9daaa2; --line: #2a3832;
+  --pine: #173a2b; --pine-deep: #102a1f; --on-pine: #eef1ea; --on-pine-muted: #a9bcb0;
+  --walnut: #d29d6c; --walnut-soft: #2c241c; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--walnut); outline-offset: 3px; }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 20px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.25; }
+h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); font-weight: 900; letter-spacing: .02em; }
+.eyebrow { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--walnut); margin: 0 0 12px; }
+.section { padding-block: clamp(56px, 8vw, 96px); }
+.section-head { display: grid; gap: 8px; margin-bottom: 36px; max-width: 40em; }
+.section-head p { margin: 0; color: var(--muted); }
+
+/* header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: color-mix(in srgb, var(--pine-deep) 94%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  color: var(--on-pine);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand-cn { font-family: var(--font-display); font-weight: 900; font-size: 1.35rem; letter-spacing: .12em; }
+.brand-en { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .2em; color: var(--on-pine-muted); }
+.nav { display: flex; gap: 22px; font-size: .92rem; }
+.nav a { text-decoration: none; color: var(--on-pine-muted); }
+.nav a:hover { color: var(--on-pine); }
+.header-phone { font-family: var(--font-mono); font-size: .9rem; text-decoration: none; border: 1px solid color-mix(in srgb, var(--on-pine) 35%, transparent); padding: 6px 12px; border-radius: 3px; white-space: nowrap; }
+.header-phone:hover { background: color-mix(in srgb, var(--on-pine) 10%, transparent); }
+@media (max-width: 760px) { .nav, .header-phone { display: none; } }
+
+/* hero */
+.hero { background: var(--pine); color: var(--on-pine); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: clamp(48px, 7vw, 88px); }
+.hero .eyebrow { color: #d9b48c; }
+.hero h1 { font-size: clamp(2.3rem, 5.4vw, 4rem); font-weight: 900; letter-spacing: .04em; line-height: 1.2; }
+.hero-lede { color: var(--on-pine-muted); font-size: 1.05rem; max-width: 30em; margin: 20px 0 32px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 20px;
+  border-radius: 3px; font: inherit; font-size: .98rem; font-weight: 600; cursor: pointer; text-decoration: none;
+  border: 1px solid transparent; transition: transform .15s ease, background .15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-solid { background: #e9d6bf; color: #2a1d12; }
+.btn-solid:hover { background: #f3e4d1; }
+.btn-ghost { background: transparent; color: var(--on-pine); border-color: color-mix(in srgb, var(--on-pine) 40%, transparent); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--on-pine) 10%, transparent); }
+.btn .mono { font-family: var(--font-mono); font-weight: 500; letter-spacing: .02em; }
+
+/* veneer rack */
+.rack { display: flex; justify-content: center; align-items: flex-end; gap: 12px; height: 400px; }
+.strip {
+  position: relative; flex: 0 1 72px; height: 100%; border: 0; padding: 0; cursor: pointer;
+  background-size: cover; background-position: center; border-radius: 2px;
+  box-shadow: 0 18px 30px -18px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.06);
+  transition: transform .25s ease;
+}
+.strip:nth-child(1) { height: 82%; } .strip:nth-child(2) { height: 94%; } .strip:nth-child(3) { height: 100%; }
+.strip:nth-child(4) { height: 90%; } .strip:nth-child(5) { height: 78%; }
+.strip:hover, .strip:focus-visible { transform: translateY(-10px); }
+.strip span {
+  position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
+  writing-mode: vertical-rl; font-size: .78rem; letter-spacing: .3em; color: #fff;
+  background: rgba(0,0,0,.38); padding: 8px 3px; border-radius: 2px;
+}
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .rack { height: 220px; justify-content: stretch; gap: 8px; }
+  .strip { flex: 1 1 0; }
+}
+
+/* facts */
+.facts { background: var(--surface); border-bottom: 1px solid var(--line); }
+.facts .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fact { padding: 26px 20px 24px; border-left: 1px solid var(--line); display: grid; gap: 4px; align-content: start; }
+.fact:first-child { border-left: 0; padding-left: 0; }
+.fact b { font-family: var(--font-mono); font-weight: 500; font-size: 1.55rem; color: var(--pine); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+:root[data-theme="dark"] .fact b { color: var(--walnut); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fact b { color: var(--walnut); } }
+.fact b small { font-size: .62em; margin-left: 4px; }
+.fact span { font-size: .9rem; color: var(--muted); line-height: 1.5; }
+@media (max-width: 760px) {
+  .facts .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact { padding: 20px 14px; border-left: 0; border-top: 1px solid var(--line); }
+  .fact:nth-child(-n+2) { border-top: 0; }
+  .fact:nth-child(odd) { padding-left: 0; }
+  .fact:nth-child(even) { border-left: 1px solid var(--line); }
+}
+
+/* about */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.about-text { min-width: 0; }
+.about-text p { margin: 0 0 1.1em; max-width: 36em; }
+.about-text .lead { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; line-height: 1.7; color: var(--ink); }
+.brands { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+.brands h3 { font-family: var(--font-body); font-size: .85rem; font-weight: 600; color: var(--muted); letter-spacing: .08em; margin-bottom: 12px; }
+.brand-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.brand-list li { border: 1px solid var(--line); background: var(--surface); padding: 6px 14px; border-radius: 2px; font-weight: 600; font-size: .95rem; }
+.brand-list li small { font-family: var(--font-mono); font-weight: 400; font-size: .7rem; color: var(--muted); margin-left: 6px; letter-spacing: .08em; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 26px 24px; min-width: 0; }
+.card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+.info { margin: 0; display: grid; gap: 14px; }
+.info div { display: grid; gap: 2px; }
+.info dt { font-size: .8rem; color: var(--muted); letter-spacing: .06em; }
+.info dd { margin: 0; font-size: .96rem; overflow-wrap: anywhere; }
+.info .mono { font-family: var(--font-mono); font-size: .92rem; }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* boards */
+.boards-bg { background: var(--surface); border-block: 1px solid var(--line); }
+.boards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.board { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.board h3 { font-size: 1.2rem; }
+.board h3 small { font-family: var(--font-mono); font-size: .68rem; font-weight: 400; color: var(--muted); margin-left: 8px; letter-spacing: .1em; }
+.board p { margin: 0; color: var(--muted); font-size: .94rem; line-height: 1.7; }
+.xsec { height: 64px; border-radius: 2px; position: relative; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.xsec-label { font-family: var(--font-mono); font-size: .68rem; color: var(--muted); letter-spacing: .1em; }
+/* 截面示意 */
+.x-eco { background:
+  linear-gradient(#b98c62 0 7px, transparent 7px calc(100% - 7px), #b98c62 calc(100% - 7px)),
+  repeating-linear-gradient(90deg, #d8b48a 0 22px, #c79f73 22px 24px, #e0bf98 24px 46px, #c79f73 46px 48px); }
+.x-ply { background: repeating-linear-gradient(180deg, #e3c59d 0 6px, #c9a173 6px 8px, #d6b086 8px 14px, #b88e60 14px 16px); }
+.x-osb { background:
+  linear-gradient(115deg, transparent 0 18%, #c79a62 18% 30%, transparent 30%) 0 0/46px 30px,
+  linear-gradient(65deg, transparent 0 40%, #b6884f 40% 52%, transparent 52%) 0 0/38px 22px,
+  linear-gradient(160deg, transparent 0 55%, #ddb57f 55% 70%, transparent 70%) 0 0/60px 26px,
+  #d1a873; }
+.x-chip { background:
+  radial-gradient(circle at 30% 40%, #a7835a 0 1.4px, transparent 1.6px) 0 0/7px 6px,
+  radial-gradient(circle at 70% 70%, #c9a87d 0 1.8px, transparent 2px) 0 0/9px 8px,
+  radial-gradient(circle at 50% 20%, #8f6c46 0 1px, transparent 1.2px) 0 0/5px 5px,
+  linear-gradient(#e7d3b7 0 5px, transparent 5px calc(100% - 5px), #e7d3b7 calc(100% - 5px)),
+  #dcc19b; }
+@media (max-width: 900px) { .boards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; } }
+@media (max-width: 480px) { .boards { grid-template-columns: 1fr; } }
+
+/* swatches */
+.tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; margin-bottom: 28px; }
+.tab { font: inherit; font-size: .94rem; border: 0; background: transparent; color: var(--muted); padding: 8px 16px; border-radius: 2px; cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--pine); color: var(--on-pine); }
+.tab .count { font-family: var(--font-mono); font-size: .75rem; margin-left: 6px; opacity: .8; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 22px 16px; }
+.sw { border: 0; padding: 0; background: none; text-align: left; cursor: pointer; color: inherit; font: inherit; display: grid; gap: 8px; min-width: 0; }
+.sw-face { aspect-ratio: 3 / 4; max-width: 100%; border-radius: 2px; background-size: cover; background-position: center; box-shadow: 0 0 0 1px var(--line), 0 10px 18px -14px rgba(0,0,0,.5); position: relative; overflow: hidden; transition: transform .2s ease; }
+.sw:hover .sw-face, .sw:focus-visible .sw-face { transform: translateY(-4px); }
+.sw-face.split::after { content: ""; position: absolute; inset: 0 50% 0 0; background: linear-gradient(125deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 38%, rgba(255,255,255,0) 62%, rgba(255,255,255,.25) 100%); }
+.sw-face.split::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: rgba(0,0,0,.08); z-index: 1; }
+.sw-name { font-weight: 600; font-size: .98rem; line-height: 1.3; }
+.sw-meta { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); letter-spacing: .06em; }
+.note { margin-top: 28px; font-size: .85rem; color: var(--muted); }
+@media (max-width: 480px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; } }
+
+/* dialog */
+dialog { border: 0; padding: 0; border-radius: 6px; background: var(--surface); color: var(--ink); width: min(860px, calc(100vw - 32px)); max-height: calc(100vh - 48px); }
+dialog::backdrop { background: rgba(8, 16, 12, .7); }
+.dlg { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+.dlg-face { min-height: 420px; background-size: cover; background-position: center; position: relative; }
+.dlg-face.split::after { content: ""; position: absolute; inset: 0 50% 0 0; background: linear-gradient(125deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 38%, rgba(255,255,255,0) 62%, rgba(255,255,255,.25) 100%); }
+.dlg-face .tag { position: absolute; bottom: 12px; font-size: .75rem; background: rgba(0,0,0,.45); color: #fff; padding: 3px 8px; border-radius: 2px; z-index: 2; }
+.dlg-body { padding: 32px 28px; display: grid; gap: 16px; align-content: start; min-width: 0; }
+.dlg-body h3 { font-size: 1.8rem; font-weight: 900; }
+.dlg-close { justify-self: end; font: inherit; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 3px; padding: 4px 12px; cursor: pointer; }
+.dlg-body .info dd { font-size: 1rem; }
+.dlg-cta { background: var(--walnut-soft); padding: 14px 16px; border-radius: 3px; font-size: .92rem; }
+.dlg-cta b { font-family: var(--font-mono); font-weight: 500; }
+@media (max-width: 640px) { .dlg { grid-template-columns: 1fr; } .dlg-face { min-height: 260px; } .dlg-body { padding: 22px 20px; } }
+
+/* contact */
+.contact { background: var(--pine-deep); color: var(--on-pine); }
+.contact .eyebrow { color: #d9b48c; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: end; }
+.phone-big { font-family: var(--font-mono); font-weight: 500; font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: .02em; margin: 14px 0 6px; font-variant-numeric: tabular-nums; user-select: all; }
+.contact p { margin: 0; color: var(--on-pine-muted); }
+.contact .actions { margin-top: 26px; }
+.addr { display: grid; gap: 18px; border-left: 1px solid color-mix(in srgb, var(--on-pine) 20%, transparent); padding-left: 28px; }
+.addr dt { font-size: .8rem; color: var(--on-pine-muted); letter-spacing: .08em; }
+.addr dd { margin: 4px 0 0; font-size: 1rem; }
+.addr a { color: #e9d6bf; }
+@media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } .addr { border-left: 0; padding-left: 0; border-top: 1px solid color-mix(in srgb, var(--on-pine) 20%, transparent); padding-top: 24px; } }
+
+footer { background: var(--pine-deep); color: var(--on-pine-muted); font-size: .8rem; border-top: 1px solid color-mix(in srgb, var(--on-pine) 12%, transparent); }
+footer .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* phone bottom bar */
+.callbar { display: none; }
+@media (max-width: 760px) {
+  .callbar {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: var(--surface); border-top: 1px solid var(--line);
+  }
+  .callbar .btn { justify-content: center; min-height: 44px; }
+  .callbar .btn-call { background: var(--pine); color: var(--on-pine); }
+  .callbar .btn-wx { background: transparent; color: var(--ink); border-color: var(--line); }
+  footer .wrap { padding-bottom: 90px; }
+}
+
+.toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 3px; font-size: .9rem; z-index: 50; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="美芬达 首页">
+      <span class="brand-cn">美芬达</span>
+      <span class="brand-en">MEIFENDA</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#about">关于我们</a>
+      <a href="#boards">板材</a>
+      <a href="#colors">饰面色卡</a>
+      <a href="#contact">联系我们</a>
+    </nav>
+    <a class="header-phone" href="tel:13804723966">138 0472 3966</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">包头 · 环保板材与家居装饰材料</p>
+        <h1>用心选好材<br>健康每个家</h1>
+        <p class="hero-lede">内蒙古美芬达新材料科技有限公司，扎根包头，专注于环保板材与家居装饰材料。ENF 级生态板、多层板、FOSB 板、颗粒板，饰面有多款木纹和纯色可选，从选材、设计到落地一站式服务。</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="tel:13804723966">电话咨询 <span class="mono">138 0472 3966</span></a>
+          <button class="btn btn-ghost" type="button" data-copy="13804723966">复制微信号</button>
+        </div>
+      </div>
+      <div class="rack" id="rack" aria-label="木纹饰面样条"></div>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="要点">
+    <div class="wrap">
+      <div class="fact"><b>ENF<small>级</small></b><span>环保等级，甲醛释放量 ≤ 0.025 mg/m³</span></div>
+      <div class="fact"><b>4<small>类</small></b><span>生态板 · 多层板 · FOSB 板 · 颗粒板</span></div>
+      <div class="fact"><b>28<small>款</small></b><span>饰面花色：木纹 12 款，纯色 16 款</span></div>
+      <div class="fact"><b>2</b><span>表面工艺：高光、肤感</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div class="about-text">
+        <div class="section-head">
+          <p class="eyebrow">About · 关于我们</p>
+          <h2>扎根包头的环保板材服务商</h2>
+        </div>
+        <p class="lead">内蒙古美芬达新材料科技有限公司成立于 2024 年，总部位于内蒙古包头市九原区，是一家专注于环保板材与家居装饰材料的综合服务企业。</p>
+        <p>公司业务涵盖人造板、建筑装饰材料、涂料、五金配件、定制家具及家居用品，并提供专业设计服务。从选材、设计到成品落地，一站式满足客户的家装需求。</p>
+        <p>主营生态板、多层板、FOSB 板、颗粒板等全系列人造板，环保等级最高达 ENF 级（甲醛释放量 ≤ 0.025 mg/m³），让每一个家都住得安心。我们紧跟家居流行趋势，提供多款木纹与纯色饰面，以及高光、肤感等表面工艺，适用于全屋定制、柜体、墙面、门板等各类场景。</p>
+        <p>美芬达立足包头、服务内蒙古，为装修公司、定制工厂和家庭用户提供优质的产品与贴心的服务。</p>
+        <div class="brands">
+          <h3>授权经销品牌</h3>
+          <ul class="brand-list">
+            <li>千年舟<small>TREEZO</small></li>
+            <li>鲁丽</li>
+            <li>尼尔科达</li>
+            <li>平安树<small>PINTREE</small></li>
+            <li>鑫奥瑞</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="card" aria-label="企业信息">
+        <h3>企业信息</h3>
+        <dl class="info">
+          <div><dt>公司全称</dt><dd>内蒙古美芬达新材料科技有限公司</dd></div>
+          <div><dt>成立日期</dt><dd>2024 年 5 月 31 日</dd></div>
+          <div><dt>统一社会信用代码</dt><dd class="mono">91150207MADL65QX1H</dd></div>
+          <div><dt>公司地址</dt><dd>内蒙古自治区包头市九原区萨如拉街道第二社区 20 幢 2 号</dd></div>
+          <div><dt>主营</dt><dd>人造板、建筑装饰材料、涂料、五金、定制家具、设计服务</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section boards-bg" id="boards">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Boards · 基材</p>
+        <h2>四类基材，按用途来选</h2>
+        <p>不同的板芯结构决定了板材的强度、握钉力和适用场景。下面是各类板材的截面示意。</p>
+      </div>
+      <div class="boards">
+        <article class="board">
+          <div class="xsec x-eco" role="img" aria-label="生态板截面示意"></div>
+          <span class="xsec-label">截面示意 · 饰面 + 板芯 + 饰面</span>
+          <h3>生态板<small>ECO</small></h3>
+          <p>板芯两面直接压贴饰面纸，免刷漆、开料即用，常用于衣柜、橱柜和书柜柜体。</p>
+        </article>
+        <article class="board">
+          <div class="xsec x-ply" role="img" aria-label="多层板截面示意"></div>
+          <span class="xsec-label">截面示意 · 单板纵横交错</span>
+          <h3>多层板<small>PLYWOOD</small></h3>
+          <p>多层单板纵横交错热压而成，结构稳定、不易变形、握钉力好，适合柜体、背板和墙面。</p>
+        </article>
+        <article class="board">
+          <div class="xsec x-osb" role="img" aria-label="FOSB 板截面示意"></div>
+          <span class="xsec-label">截面示意 · 大片木片定向铺装</span>
+          <h3>FOSB 板<small>OSB</small></h3>
+          <p>大片木片定向铺装、热压成型，强度高、抗弯性能好，适合承重柜体和隔板。</p>
+        </article>
+        <article class="board">
+          <div class="xsec x-chip" role="img" aria-label="颗粒板截面示意"></div>
+          <span class="xsec-label">截面示意 · 细表层 + 粗芯层</span>
+          <h3>颗粒板<small>PARTICLE</small></h3>
+          <p>木材颗粒施胶压制，表面平整、尺寸稳定、性价比高，适合板式家具和定制柜门。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="colors">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Colors · 饰面色卡</p>
+        <h2>网红色 · 木语系列</h2>
+        <p>点开任意一款，可以看大图和工艺。到店可看实物样板。</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="色卡分类" id="tabs"></div>
+      <div class="grid" id="grid" role="tabpanel"></div>
+      <p class="note">色卡图片仅供参考，屏幕显示会有色差，颜色以实物样板为准。</p>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact · 联系我们</p>
+        <h2>看样、报价，打个电话就行</h2>
+        <div class="phone-big">138 0472 3966</div>
+        <p>微信同号</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="tel:13804723966">拨打电话</a>
+          <button class="btn btn-ghost" type="button" data-copy="13804723966">复制微信号</button>
+        </div>
+      </div>
+      <dl class="addr">
+        <div><dt>公司地址</dt><dd>内蒙古自治区包头市九原区萨如拉街道第二社区 20 幢 2 号</dd></div>
+        <div><dt>导航</dt><dd><a href="https://uri.amap.com/search?keyword=%E5%8C%85%E5%A4%B4%E5%B8%82%E4%B9%9D%E5%8E%9F%E5%8C%BA%E8%90%A8%E5%A6%82%E6%8B%89%E8%A1%97%E9%81%93%E7%AC%AC%E4%BA%8C%E7%A4%BE%E5%8C%BA20%E5%B9%A22%E5%8F%B7" target="_blank" rel="noopener">在高德地图中打开 ↗</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2024–2026 内蒙古美芬达新材料科技有限公司</span>
+    <span>电话 / 微信 138 0472 3966</span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-call" href="tel:13804723966">拨打电话</a>
+  <button class="btn btn-wx" type="button" data-copy="13804723966">复制微信号</button>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg">
+    <div class="dlg-face" id="dlg-face"></div>
+    <div class="dlg-body">
+      <button class="dlg-close" type="button" id="dlg-close">关闭</button>
+      <div>
+        <p class="eyebrow" id="dlg-series"></p>
+        <h3 id="dlg-title"></h3>
+      </div>
+      <dl class="info" id="dlg-info"></dl>
+      <div class="dlg-cta">想看实物样板或要报价，请电话 / 微信 <b>138 0472 3966</b></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const WOOD = [
+  ["QNZ", "晓风胡桃", "xiaofeng"], ["QNZ", "斜晖胡桃", "xiehui"], ["QNZ", "晚秋胡桃", "wanqiu"],
+  ["TBB", "黑炭榆木", "heitan"], ["TBB", "原橡木", "yuanxiang"], ["QNZ", "朗月胡桃", "langyue"],
+  ["MGS", "兰亭集序", "lanting"], ["QNZ", "沉榆", "chenyu"], ["TBB", "好易似锦", "haoyi1"],
+  ["TBB", "赛洛胡桃", "sailuo"], ["TBB", "好易似锦 · 深", "haoyi2"], ["MGS", "富贵胡桃", "fugui"]
+];
+const SOLID = [
+  ["婷兰灰", "#e4d9d5"], ["绅士灰", "#65696c"], ["莫兰迪灰", "#c8bfc2"],
+  ["珍珠灰", "#f8edeb"], ["贝壳白", "#fbf9fa"], ["羊绒灰", "#d4c5c0"]
+];
+const DUAL = [
+  ["冰山白", "#fefefe"], ["天鹅白", "#fcfbf9"], ["奶油白", "#f4ead1"], ["暖灰", "#d7d0c8"],
+  ["婷兰灰", "#efebe8"], ["伯爵灰", "#a99e98"], ["水晶灰", "#d3d5d4"], ["相思灰", "#bfbcb5"],
+  ["浅青灰", "#b0b6b6"], ["深咖", "#444444"]
+];
+
+const GROUPS = [
+  { id: "wood", label: "木纹", items: WOOD.map(([code, name, file]) => ({
+      name, meta: code, img: `img/wood-${file}.jpg`, series: "木语系列 · 木纹",
+      info: [["花色编号", `${code} · ${name}`], ["饰面类型", "木纹"], ["适用基材", "生态板、多层板、FOSB 板、颗粒板"]] })) },
+  { id: "solid", label: "纯色", items: SOLID.map(([name, hex]) => ({
+      name, meta: "纯色", color: hex, series: "木语系列 · 纯色",
+      info: [["饰面类型", "纯色"], ["适用基材", "生态板、多层板、FOSB 板、颗粒板"]] })) },
+  { id: "dual", label: "高光 · 肤感", items: DUAL.map(([name, hex]) => ({
+      name, meta: "高光 / 肤感", color: hex, split: true, series: "高光 · 肤感系列",
+      info: [["饰面类型", "纯色"], ["表面工艺", "高光（亮面）或肤感（哑光细腻触感）两种可选"], ["适用场景", "柜门、护墙板"]] })) }
+];
+
+const $ = (s) => document.querySelector(s);
+const face = (el, it) => {
+  if (it.img) el.style.backgroundImage = `url("${it.img}")`;
+  else el.style.background = it.color;
+  el.classList.toggle("split", !!it.split);
+};
+
+// hero rack
+const rackPick = [0, 6, 3, 9, 4];
+rackPick.forEach((i) => {
+  const it = GROUPS[0].items[i];
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "strip";
+  b.style.backgroundImage = `url("${it.img}")`;
+  b.setAttribute("aria-label", `查看 ${it.name}`);
+  b.innerHTML = `<span>${it.name}</span>`;
+  b.addEventListener("click", () => openItem(it));
+  $("#rack").appendChild(b);
+});
+
+// tabs + grid
+let current = "wood";
+try { current = localStorage.getItem("mfd-tab") || "wood"; } catch (e) {}
+if (!GROUPS.some((g) => g.id === current)) current = "wood";
+
+function renderTabs() {
+  $("#tabs").innerHTML = "";
+  GROUPS.forEach((g) => {
+    const t = document.createElement("button");
+    t.type = "button"; t.className = "tab"; t.id = `tab-${g.id}`;
+    t.setAttribute("role", "tab");
+    t.setAttribute("aria-selected", String(g.id === current));
+    t.innerHTML = `${g.label}<span class="count">${g.items.length}</span>`;
+    t.addEventListener("click", () => { current = g.id; try { localStorage.setItem("mfd-tab", current); } catch (e) {} renderTabs(); renderGrid(); });
+    $("#tabs").appendChild(t);
+  });
+}
+function renderGrid() {
+  const g = GROUPS.find((x) => x.id === current);
+  const grid = $("#grid"); grid.innerHTML = "";
+  grid.setAttribute("aria-labelledby", `tab-${g.id}`);
+  g.items.forEach((it) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "sw";
+    b.innerHTML = `<div class="sw-face"></div><div><div class="sw-name">${it.name}</div><div class="sw-meta">${it.meta}</div></div>`;
+    face(b.querySelector(".sw-face"), it);
+    b.addEventListener("click", () => openItem(it));
+    grid.appendChild(b);
+  });
+}
+
+// dialog
+const dlg = $("#dlg");
+function openItem(it) {
+  const f = $("#dlg-face");
+  f.removeAttribute("style"); f.innerHTML = "";
+  face(f, it);
+  if (it.split) f.innerHTML = `<span class="tag" style="left:12px">高光</span><span class="tag" style="right:12px">肤感</span>`;
+  $("#dlg-series").textContent = it.series;
+  $("#dlg-title").textContent = it.name;
+  $("#dlg-info").innerHTML = it.info.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+}
+$("#dlg-close").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+
+// copy WeChat
+function toast(msg) {
+  const t = document.createElement("div"); t.className = "toast"; t.textContent = msg;
+  document.body.appendChild(t); setTimeout(() => t.remove(), 2200);
+}
+document.querySelectorAll("[data-copy]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const v = btn.dataset.copy;
+    const done = () => toast(`已复制微信号 ${v}，打开微信添加好友即可`);
+    const fail = () => toast(`微信号：${v}（请长按手动复制）`);
+    try { navigator.clipboard.writeText(v).then(done, fail); } catch (e) { fail(); }
+  });
+});
+
+renderTabs(); renderGrid();
+</script>
+</body>
+</html>
